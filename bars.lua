@@ -1,6 +1,6 @@
 PLUGIN.name = "Bars"
 PLUGIN.author = "Olegle"
-PLUGIN.descripton = "Adds a config to disables bars"
+PLUGIN.descripton = "Adds a config to disable bars"
 
 ix.config.Add("Should Hide Bars", true, "hide bars", nil,{
   category = "HL2RP Hud"
