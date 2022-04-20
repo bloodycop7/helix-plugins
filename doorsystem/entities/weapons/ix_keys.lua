@@ -1,4 +1,4 @@
-
+local PLUGIN = PLUGIN
 AddCSLuaFile()
 
 if (CLIENT) then
