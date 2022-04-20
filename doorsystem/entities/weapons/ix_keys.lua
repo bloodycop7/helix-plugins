@@ -210,14 +210,12 @@ function SWEP:SecondaryAttack()
 	if ( IsValid( entity ) and entity:IsDoor() ) then
 		for k, v in pairs(PLUGIN.doors) do
 			if ( entity:MapCreationID() == k ) then
-				if not ( entity:GetClass() == "func_door" ) then
-					for a, b in pairs(PLUGIN.access) do
-						if ( a == v["access"] ) then
-							if ( table.HasValue( b["factions"], self.Owner:Team() ) ) then
-								self.Owner:SetAction("@unlocking", time, function()
-									self:ToggleLock(entity, false)
-								end)
-							end
+				for a, b in pairs(PLUGIN.access) do
+					if ( a == v["access"] ) then
+						if ( table.HasValue( b["factions"], self.Owner:Team() ) ) then
+							self.Owner:SetAction("@unlocking", time, function()
+								self:ToggleLock(entity, false)
+							end)
 						end
 					end
 				end
