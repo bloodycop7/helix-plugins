@@ -1,3 +1,5 @@
+local PLUGIN = PLUGIN
+
 local function opendoor(ply, door)
 	local snd = "buttons/lever8.wav" -- Just incase you forgot to define sound
 	for k, v in pairs(PLUGIN.doors) do
