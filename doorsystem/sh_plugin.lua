@@ -11,6 +11,9 @@ PLUGIN.author = "Skay™#2752"
 
 ]]
 
+ix.util.Include("cl_hooks.lua")
+ix.util.Include("sv_hooks.lua")
+
 PLUGIN.access = {
 	[1] = {
 		["name"] = "Universal Access 1",
@@ -35,7 +38,7 @@ PLUGIN.access = {
 
 
 PLUGIN.doors = {
-   [6969] = { -- Map Creation ID of the door
+   [3965] = { -- Map Creation ID of the door
       ["name"] = "Yo CP's come in boys.", -- Display name of the door
       ["access"] = 1, -- Access of the door
 	},

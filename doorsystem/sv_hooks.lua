@@ -1,7 +1,7 @@
 local function opendoor(ply, door)
 	local snd = "buttons/lever8.wav" -- Just incase you forgot to define sound
-	for k, v in pairs(Schema.doors) do
-		for _, access in pairs(Schema.access) do
+	for k, v in pairs(PLUGIN.doors) do
+		for _, access in pairs(PLUGIN.access) do
 			if ( v["access"] == _ ) then
 				snd = access["sound"]
 			end
@@ -17,10 +17,10 @@ end
 function PLUGIN:PlayerUseDoor( ply, door )
 	if ( ply:IsCombine() ) then
 		--print("PlayerUseDoor")
-		for k, v in pairs(Schema.doors) do
+		for k, v in pairs(PLUGIN.doors) do
 			if ( door:MapCreationID() == k ) then
 				--print('correct id')
-				for _, access in pairs(Schema.access) do
+				for _, access in pairs(PLUGIN.access) do
 					if ( v["access"] == _ ) then
 						--print('correct access')
 						if ( table.HasValue(access["factions"], ply:Team()) ) then
