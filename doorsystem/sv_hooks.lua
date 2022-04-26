@@ -50,8 +50,6 @@ function PLUGIN:PlayerUseDoor( ply, door )
 						print("Door - " .. door:MapCreationID() .. " does not have a setup ID")
 					end
 				end
-			else
-				print("Door - " .. door:MapCreationID() .. " does is not on the correct map.")
 			end
 		end
 	end

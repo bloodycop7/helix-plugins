@@ -6,11 +6,13 @@ PLUGIN.author = "Skay™#2752"
 
 --[[ DOOR SYSTEM TEMPLATE
 
-   [2152] = { -- Map Creation ID of the door
-		id = 2152, -- ID of the door
-      name = "Bridge Access", -- Display name of the door
-      access = 2 -- Access of the door
-	},   
+   ["mapname"] = { -- use status in console
+		{
+			id = 3965, -- Map Creation ID of the door
+			name = "Yo CP's come in boys.", -- Display name of the door
+			access = 1 -- Access of the door
+		},
+	}
 
 ]]
 
@@ -61,6 +63,13 @@ PLUGIN.doors = {
 			id = 4110,
 			name = "drugs",
 			access = 2	
+		}
+	},
+	["rp_nc_d47_v2"] = {
+		{
+			id = 2380,
+			name = "hi",
+			access = 1
 		}
 	}
 }
