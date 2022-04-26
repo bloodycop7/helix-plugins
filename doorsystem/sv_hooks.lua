@@ -2,11 +2,10 @@ local PLUGIN = PLUGIN
 
 local function opendoor(ply, door)
 	if ( door:GetClass() == "func_door" ) then
-		local snd = "buttons/lever8.wav" -- Just incase you forgot to define sound
 		for k, v in pairs(PLUGIN.doors) do
 			for _, access in pairs(PLUGIN.access) do
 				if ( v.access == _ ) then
-					snd = access.snd
+					local snd = access.snd
 				end
 			end
 		end
@@ -14,7 +13,9 @@ local function opendoor(ply, door)
 		ply:SetAction("Opening...", 0.5)
 		ply:DoStaredAction(door, function()
 			door:Fire("open")
-			door:EmitSound(snd)
+			if ( snd ) then
+				door:EmitSound(snd)
+			end
 		end, 0.5)
 	end
 end
