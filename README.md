@@ -1,5 +1,5 @@
-# helix-plugins
+# Helix Plugins I have made
 
-# These are all Helix-Plugins I made, they are free to use.
-
-# Enjoy!
+      Hello there, these are all my plugins I have made for helix framework
+      
+      They are free to use!
