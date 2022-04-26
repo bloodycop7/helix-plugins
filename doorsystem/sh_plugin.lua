@@ -16,7 +16,7 @@ PLUGIN.author = "Skay™#2752"
 
 ix.util.Include("cl_hooks.lua")
 ix.util.Include("sv_hooks.lua")
-
+ix.util.Include("sh_entity.lua")
 PLUGIN.access = {
 	[1] = {
 		name = "Universal Access 1",
