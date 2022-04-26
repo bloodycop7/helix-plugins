@@ -14,12 +14,12 @@ local function DrawDoorAccess(ply)
                -- The position is not visible from our screen, don't draw and continue onto the next prop
                --if not ( data2D.visible ) then return end
 
-               draw.DrawText(b["name"], "BudgetLabel", pos.x, pos.y, ColorAlpha(color_white, 255), TEXT_ALIGN_CENTER)
+               draw.DrawText(b.name, "BudgetLabel", pos.x, pos.y, ColorAlpha(color_white, 255), TEXT_ALIGN_CENTER)
 
-               if ( b["access"] ) then
+               if ( b.access ) then
                    for c, d in pairs(PLUGIN.access) do
-                       if ( b["access"] == c ) then
-                           draw.DrawText(d["name"], "BudgetLabel", pos.x, pos.y - 30, ColorAlpha(d["color"], 255), TEXT_ALIGN_CENTER)
+                       if ( b.access == c ) then
+                           draw.DrawText(d.name, "BudgetLabel", pos.x, pos.y - 30, ColorAlpha(d["color"], 255), TEXT_ALIGN_CENTER)
                        end
                    end
                end

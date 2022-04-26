@@ -97,17 +97,17 @@ function SWEP:PrimaryAttack()
 	--]]
 
 	if ( IsValid( entity ) and entity:IsDoor() ) then
-
 		for k, v in pairs(PLUGIN.doors) do
-
 			if ( entity:MapCreationID() == k ) then
-
 				for a, b in pairs(PLUGIN.access) do
-					if ( a == v["access"] ) then
-						if ( table.HasValue( b["factions"], self.Owner:Team() ) ) then
+					if ( a == v.access ) then
+						if ( b.checkAccess(self.Owner) ) then
 							self.Owner:SetAction("@locking", time, function()
 								self:ToggleLock(entity, true)
 							end)
+						else
+							self.Owner:ChatNotify("You do not have access to this door.")
+							return
 						end
 					end
 				end
@@ -211,11 +211,14 @@ function SWEP:SecondaryAttack()
 		for k, v in pairs(PLUGIN.doors) do
 			if ( entity:MapCreationID() == k ) then
 				for a, b in pairs(PLUGIN.access) do
-					if ( a == v["access"] ) then
-						if ( table.HasValue( b["factions"], self.Owner:Team() ) ) then
+					if ( a == v.access ) then
+						if ( b.checkAccess(self.Owner) ) then
 							self.Owner:SetAction("@unlocking", time, function()
 								self:ToggleLock(entity, false)
 							end)
+						else
+							self.Owner:ChatNotify("You do not have access to this door.")
+							return
 						end
 					end
 				end
