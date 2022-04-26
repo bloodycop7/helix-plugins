@@ -102,9 +102,11 @@ function SWEP:PrimaryAttack()
 				for a, b in pairs(PLUGIN.access) do
 					if ( a == v.access ) then
 						if ( b.checkAccess(self.Owner) ) then
-							self.Owner:SetAction("@locking", time, function()
-								self:ToggleLock(entity, true)
-							end)
+							if ( entity:GetClass() == "prop_door_rotating" ) then
+								self.Owner:SetAction("@locking", time, function()
+									self:ToggleLock(entity, true)
+								end)
+							end
 						else
 							self.Owner:ChatNotify("You do not have access to this door.")
 							return
@@ -213,9 +215,11 @@ function SWEP:SecondaryAttack()
 				for a, b in pairs(PLUGIN.access) do
 					if ( a == v.access ) then
 						if ( b.checkAccess(self.Owner) ) then
-							self.Owner:SetAction("@unlocking", time, function()
-								self:ToggleLock(entity, false)
-							end)
+							if ( entity:GetClass() == "prop_door_rotating" ) then
+								self.Owner:SetAction("@unlocking", time, function()
+									self:ToggleLock(entity, false)
+								end)
+							end
 						else
 							self.Owner:ChatNotify("You do not have access to this door.")
 							return
