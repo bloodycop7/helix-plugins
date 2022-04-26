@@ -98,18 +98,20 @@ function SWEP:PrimaryAttack()
 
 	if ( IsValid( entity ) and entity:IsDoor() ) then
 		for k, v in pairs(PLUGIN.doors) do
-			if ( entity:MapCreationID() == k ) then
-				for a, b in pairs(PLUGIN.access) do
-					if ( a == v.access ) then
-						if ( b.checkAccess(self.Owner) ) then
-							if ( entity:GetClass() == "prop_door_rotating" ) then
-								self.Owner:SetAction("@locking", time, function()
-									self:ToggleLock(entity, true)
-								end)
+			for stuff, stuff2 in pairs(v) do
+				if ( entity:MapCreationID() == stuff2.id ) then
+					for a, b in pairs(PLUGIN.access) do
+						if ( a == stuff2.access ) then
+							if ( b.checkAccess(self.Owner) ) then
+								if ( entity:GetClass() == "prop_door_rotating" ) then
+									self.Owner:SetAction("@locking", time, function()
+										self:ToggleLock(entity, true)
+									end)
+								end
+							else
+								self.Owner:ChatNotify("You do not have access to this door.")
+								return
 							end
-						else
-							self.Owner:ChatNotify("You do not have access to this door.")
-							return
 						end
 					end
 				end
@@ -211,18 +213,20 @@ function SWEP:SecondaryAttack()
 
 	if ( IsValid( entity ) and entity:IsDoor() ) then
 		for k, v in pairs(PLUGIN.doors) do
-			if ( entity:MapCreationID() == k ) then
-				for a, b in pairs(PLUGIN.access) do
-					if ( a == v.access ) then
-						if ( b.checkAccess(self.Owner) ) then
-							if ( entity:GetClass() == "prop_door_rotating" ) then
-								self.Owner:SetAction("@unlocking", time, function()
-									self:ToggleLock(entity, false)
-								end)
+			for stuff, stuff2 in pairs(v) do
+				if ( entity:MapCreationID() == stuff2.id ) then
+					for a, b in pairs(PLUGIN.access) do
+						if ( a == stuff2.access ) then
+							if ( b.checkAccess(self.Owner) ) then
+								if ( entity:GetClass() == "prop_door_rotating" ) then
+									self.Owner:SetAction("@unlocking", time, function()
+										self:ToggleLock(entity, false)
+									end)
+								end
+							else
+								self.Owner:ChatNotify("You do not have access to this door.")
+								return
 							end
-						else
-							self.Owner:ChatNotify("You do not have access to this door.")
-							return
 						end
 					end
 				end

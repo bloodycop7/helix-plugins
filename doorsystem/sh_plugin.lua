@@ -1,3 +1,5 @@
+local PLUGIN = PLUGIN
+
 PLUGIN.name = "Door System"
 PLUGIN.description = "Adds a simply configurable door system."
 PLUGIN.author = "Skay™#2752"
@@ -5,6 +7,7 @@ PLUGIN.author = "Skay™#2752"
 --[[ DOOR SYSTEM TEMPLATE
 
    [2152] = { -- Map Creation ID of the door
+		id = 2152, -- ID of the door
       name = "Bridge Access", -- Display name of the door
       access = 2 -- Access of the door
 	},   
@@ -43,16 +46,34 @@ PLUGIN.access = {
 
 
 PLUGIN.doors = {
-   [3965] = { -- Map Creation ID of the door
-      name = "Yo CP's come in boys.", -- Display name of the door
-      access = 1 -- Access of the door
-	},
-	[3966] = {
-		name = "cat",
-		access = 1
-	},
-	[4110] = {
-		name = "drugs",
-		access = 2
+	["rp_city17_conflictstudios"] = {
+		{
+			id = 3965, -- Map Creation ID of the door
+			name = "Yo CP's come in boys.", -- Display name of the door
+			access = 1 -- Access of the door
+		},
+		{
+			id = 3966,
+			name = "cat",
+			access = 1
+		},
+		{	
+			id = 4110,
+			name = "drugs",
+			access = 2	
+		}
 	}
 }
+
+concommand.Add("printtable", function(ply)
+	PrintTable(PLUGIN.doors)
+	
+	for k, v in pairs(PLUGIN.doors) do
+		print(k.." - k")
+		for _, a in pairs(v) do
+			timer.Simple(5, function()
+				PrintTable(v)
+			end)
+		end
+	end
+end)
