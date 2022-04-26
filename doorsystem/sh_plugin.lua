@@ -50,5 +50,9 @@ PLUGIN.doors = {
 	[3966] = {
 		name = "cat",
 		access = 1
+	},
+	[4110] = {
+		name = "drugs",
+		access = 2
 	}
 }

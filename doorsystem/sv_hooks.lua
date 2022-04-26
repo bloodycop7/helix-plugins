@@ -35,7 +35,7 @@ function PLUGIN:PlayerUseDoor( ply, door )
 							if ( door:GetClass() == "func_door" ) then
 								door:EmitSound("buttons/combine_button_locked.wav")
 							end
-							--ply:Notify("Access Denied")
+							ply:ChatNotify("You are not allowed to open this door.")
 							return
 						end
 					end
