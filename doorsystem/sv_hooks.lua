@@ -22,20 +22,30 @@ local function opendoor(ply, door)
 	end
 end
 
+local function debug(door)
+	for k, v in pairs(PLUGIN.doors) do 
+		if ( game.GetMap() == k ) then
+			print('correct map')
+		end
+		
+		for m, a in pairs(v) do
+			if ( k == door:MapCreationID() ) then
+				print('correct door')
+			end
+		end
+	end
+end 
+
 function PLUGIN:PlayerUseDoor( ply, door )
 	if ( ply:IsCombine() ) then
-		--print("PlayerUseDoor")
+		debug(door)
 		for k, v in pairs(PLUGIN.doors) do
 			if ( game.GetMap() == k ) then
-				--print("correct map")
 				for _, a in pairs(v) do
 					if ( door:MapCreationID() == a.id ) then
-						--print('correct id')
 						for _, access in pairs(PLUGIN.access) do
 							if ( a.access == _ ) then
-								--print('correct access')
 								if ( access.checkAccess(ply) ) then
-									--print('correct team')
 									opendoor(ply, door)
 								else
 									if ( door:GetClass() == "func_door" ) then
