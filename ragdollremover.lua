@@ -16,7 +16,7 @@ ix.config.Add("ragdoll_remove_enabled", false, "Should ragdoll remover be enable
 if ( SERVER ) then
    function PLUGIN:Tick()
       if ( ix.config.Get("ragdoll_remove_enabled") ) then
-         if not ( timer.Exists("ragdollremover") ) then
+         if not ( timer.Exists("ragdollremovetimer") ) then
             timer.Create("ragdollremovetimer", ix.config.Get("ragdoll_remove_time", 60), 0, function()
                for k, v in pairs(ents.FindByClass("prop_ragdoll")) do
                   SafeRemoveEntity(v)
