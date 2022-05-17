@@ -1,14 +1,30 @@
+local PLUGIN = PLUGIN
+
 PLUGIN.name = "Playsound"
 PLUGIN.description = "Adds /PlaySound command"
-PLUGIN.author = "Apsys"
+PLUGIN.author = "Skay"
 
+if ( SERVER ) then
+   util.AddNetworkString("ixPlaysoundPlay")
 
-concommand.Add("playsound", function(ply, cmd, args)
-    if (ply:IsSuperAdmin()) then
-        for k, v in pairs(player.GetAll()) do
-            v:EmitSound(tostring(args[1]))
-        end
-    else
-        print("You need to be Superadmin to use this!")
-    end
-end)
+   ix.command.Add("PlaySound", {
+      description = "Plays a sound.",
+      arguments = ix.type.string,
+      OnRun = function(_, ply, sound)
+         if not ( ply:IsSuperAdmin() ) then
+            ply:Notify("You don't have access to this command.")
+            return
+         end
+         
+         net.Start("ixPlaysoundPlay")
+            net.WriteString(tostring(sound))
+         net.Broadcast()
+      end
+   })
+else
+   net.Receive("ixPlaysoundPlay", function(len)
+      local snd = net.ReadString()
+      
+      LocalPlayer():EmitSound(tostring(snd))
+   end)   
+end
