@@ -6,11 +6,11 @@ PLUGIN.description = "Removes all ragdolls found on the ground."
 
 ix.config.Add("ragdoll_remove_time", 60, "How long to wait before removing ragdolls.", nil, {
    data = {min = 0, max = 120},
-   category = self.name
+   category = PLUGIN.name
 })
 
 ix.config.Add("ragdoll_remove_enabled", false, "Should ragdoll remover be enabled?", nil, {
-   category = self.name
+   category = PLUGIN.name
 })
 
 if ( SERVER ) then
