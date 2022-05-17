@@ -9,7 +9,7 @@ ix.config.Add("ragdoll_remove_time", 60, "How long to wait before removing ragdo
    category = self.name
 })
 
-ix.config.Add("ragdoll_remove_enabled", false, "Should ragdoll remover be enabled?.", nil, {
+ix.config.Add("ragdoll_remove_enabled", false, "Should ragdoll remover be enabled?", nil, {
    category = self.name
 })
 
