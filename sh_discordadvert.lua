@@ -24,14 +24,14 @@ if ( SERVER ) then
     end
 
     if not ( timer.Exists("SchemaDiscordAdvertTimer") ) then
-        timer.Create("SchemaDiscordAdvertTimer", math.random(1, 5), 0, function()
+        timer.Create("SchemaDiscordAdvertTimer", math.random(120, 360), 0, function()
             if ( ix.config.Get("discordReminder", false) ) then
                 Schema:MakeAnnouncement("Please make sure to join our discord! "..PLUGIN.discord)
             end
         end)
     else
         timer.Remove("SchemaDiscordAdvertTimer")
-        timer.Create("SchemaDiscordAdvertTimer", math.random(1, 5), 0, function()
+        timer.Create("SchemaDiscordAdvertTimer", math.random(120, 360), 0, function()
             if ( ix.config.Get("discordReminder", false) ) then
                 Schema:MakeAnnouncement("Please make sure to join our discord! "..PLUGIN.discord)
             end
