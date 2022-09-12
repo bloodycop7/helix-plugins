@@ -1,10 +1,14 @@
 local PLUGIN = PLUGIN
 
 PLUGIN.name = "Discord Reminder"
-PLUGIN.discord = "" -- Permanent Discord Invite Link
 PLUGIN.description = "Discord Invite Reminder"
-PLUGIN.serverName = ""
 PLUGIN.author = "Drobcho"
+
+--[[------------------------------------------------
+                PLUGIN CONFIGURATION
+----------------------------------------------------]]
+PLUGIN.discord = "" -- Permanent Discord Invite Link
+PLUGIN.serverName = "" -- Name of your server
 
 ix.lang.AddTable("english", {
 	optdiscordReminder = "Discord Reminder"
