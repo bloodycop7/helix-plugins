@@ -45,4 +45,3 @@ else
         chat.AddText(ix.config.Get("color"), PLUGIN.serverName.." Announcement", color_white, ": "..txt)
     end)
 end
-
