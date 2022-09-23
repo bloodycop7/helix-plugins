@@ -55,8 +55,8 @@ if ( SERVER ) then
         if ( hook.Run("ShouldResetPlayerBodygroupsOnDeath", ply, ply:GetCharacter(), ply:GetBodyGroups()) == true ) then
             for k, v in pairs(ply:GetBodyGroups()) do
                 reset[k] = 0
-                ply:GetChar():SetData(char:GetModel().."Bodygroups", reset)
                 ply:SetBodygroup(k, 0)
+                ply:GetChar():SetData(char:GetModel().."Bodygroups", reset)
             end
         end
     end
