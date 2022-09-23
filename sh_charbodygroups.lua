@@ -15,27 +15,17 @@ if ( SERVER ) then
     function PLUGIN:PlayerLoadedCharacter(ply, ochar, char)
         if not ( char ) then return end
         
-        if not ( ply:GetCharGroups() ) then
-            local bg = {}
+        local bg = {}
 
-            for k, v in pairs(ply:GetBodyGroups()) do
-                bg[tonumber(k) or 0] = v.id or 0
-            end
-            
-            char:SetData(char:GetModel().."Bodygroups", bg)
-        else
-            local bg = {}
-
-            for k, v in pairs(ply:GetBodyGroups()) do
-                bg[tonumber(k) or 0] = v.id or 0
-            end
-            
-            char:SetData(char:GetModel().."Bodygroups", bg)
+        for k, v in pairs(ply:GetBodyGroups()) do
+            bg[k] = v.id
         end
 
-        for k, v in pairs(ply:GetCharGroups()) do
+        for k, v in pairs(bg) do
             ply:SetBodygroup(k, v)
         end
+
+        char:SetData(ply:GetModel().."Bodygroups", bg)
     end
 
     function PLUGIN:PlayerTick(ply)
@@ -43,27 +33,18 @@ if ( SERVER ) then
 
         if not ( char ) then return end
 
-        if not ( ply:GetCharGroups() ) then
-            local bg = {}
+        local bg = {}
 
-            for k, v in pairs(ply:GetBodyGroups()) do
-                bg[tonumber(k) or 0] = v.id or 0
-            end
-            
-            char:SetData(char:GetModel().."Bodygroups", bg)
-        else
-            local bg = {}
-
-            for k, v in pairs(ply:GetBodyGroups()) do
-                bg[tonumber(k) or 0] = v.id or 0
-            end
-            
-            char:SetData(char:GetModel().."Bodygroups", bg)
+        for k, v in pairs(ply:GetBodyGroups()) do
+            bg[k] = v.id 
         end
-
-        for k, v in pairs(ply:GetCharGroups()) do
+    
+        for k, v in pairs(bg) do
             ply:SetBodygroup(k, v)
         end
+
+        char:SetData(char:GetModel().."Bodygroups", bg)
+        print("HELP")
     end
 
     function PLUGIN:ShouldResetPlayerBodygroupsOnDeath(ply, char, bg)
