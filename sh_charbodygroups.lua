@@ -44,7 +44,6 @@ if ( SERVER ) then
         end
 
         char:SetData(char:GetModel().."Bodygroups", bg)
-        print("HELP")
     end
 
     function PLUGIN:ShouldResetPlayerBodygroupsOnDeath(ply, char, bg)
