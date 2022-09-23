@@ -13,6 +13,8 @@ end
 
 if ( SERVER ) then
     function PLUGIN:PlayerLoadedCharacter(ply, ochar, char)
+        if not ( char ) then return end
+        
         if not ( ply:GetCharGroups() ) then
             local bg = {}
 
