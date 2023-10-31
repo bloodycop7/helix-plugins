@@ -3,7 +3,7 @@ local PLUGIN = PLUGIN
 PLUGIN.name = "Character Menu Image"
 PLUGIN.author = "eon | bloodycop"
 PLUGIN.images = {
-    {"icon16/", Color(255, 255, 255)}, // replace with your material (ex: icon16/anchor.png).
+    {"icon16/anchor.png", Color(255, 255, 255)}, // replace with your material (ex: icon16/anchor.png).
 }
 
 if ( SERVER ) then
