@@ -19,11 +19,15 @@ if not ( timer.Exists("ix.gui.characterMenu.ImageSwitcher") ) then
             return
         end
 
-        local newTable = table.Copy(PLUGIN.images)
+        if ( #PLUGIN.images > 0 ) then
+            local newTable = table.Copy(PLUGIN.images)
 
-        table.remove(newTable, randomImageID) // Make sure the current image is removed from a randomized table.
+            table.remove(newTable, randomImageID) // Make sure the current image is removed from a randomized table.
 
-        randomImageID = math.random(1, #newTable)
+            randomImageID = math.random(1, #newTable)
+        else
+            randomImageID = math.random(1, #PLUGIN.images)
+        end
     end)
 end
 
