@@ -2,7 +2,7 @@ local PLUGIN = PLUGIN
 
 PLUGIN.name = "Discord Reminder"
 PLUGIN.description = "Discord Invite Reminder"
-PLUGIN.author = "Drobcho"
+PLUGIN.author = "eon (bloodycop)"
 
 --[[------------------------------------------------
                 PLUGIN CONFIGURATION
