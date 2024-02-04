@@ -1,11 +1,11 @@
 PLUGIN.name = "Bars"
-PLUGIN.author = "Apsys"
+PLUGIN.author = "eon (bloodycop)"
 PLUGIN.descripton = "Adds a config to disable bars"
 
-ix.config.Add("Should Hide Bars", true, "hide bars", nil,{
-  category = "HL2RP Hud"
+ix.config.Add("shouldHideBars", true, "hide bars", nil,{
+  category = "Appearance"
 })
 
 function PLUGIN:ShouldHideBars()
-  return ix.config.Get("Should Hide Bars")
+  return ix.config.Get("shouldHideBars", false)
 end
