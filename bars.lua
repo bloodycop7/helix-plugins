@@ -7,5 +7,5 @@ ix.config.Add("shouldHideBars", true, "hide bars", nil,{
 })
 
 function PLUGIN:ShouldHideBars()
-  return ix.config.Get("shouldHideBars", false)
+  return ix.config.Get("shouldHideBars", true)
 end
